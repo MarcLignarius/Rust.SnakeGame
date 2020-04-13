@@ -3,8 +3,8 @@ use piston_window::types::Color;
 
 use rand::{thread_rng, Rng};
 
-use snake::{Direction, Snake};
-use draw::{draw_block, draw_rectangle};
+use crate::snake::{Direction, Snake};
+use crate::draw::{draw_block, draw_rectangle};
 
 const FOOD_COLOR: Color = [0.80, 0.00, 0.00, 1.0];
 const BORDER_COLOR: Color = [0.00, 0.00, 0.00, 1.0];
@@ -58,14 +58,14 @@ impl Game {
             return;
         }
 
-        self.update_snake(dir;)
+        self.update_snake(dir);
     }
 
     pub fn draw(&self, con: &Context, g: &mut G2d) {
         self.snake.draw(con, g);
 
         if self.food_exists {
-            draw_block(FOOD_COLOR, self_food.x, self_food.y, con, g);
+            draw_block(FOOD_COLOR, self.food_x, self.food_y, con, g);
         }
 
         draw_rectangle(BORDER_COLOR, 0, 0, self.width, 1, con, g);
@@ -74,7 +74,7 @@ impl Game {
         draw_rectangle(BORDER_COLOR, self.width - 1, 0, 1, self.height, con, g);
 
         if self.game_over {
-            draw.rectangle(GAMEOVER_COLOR, 0, 0, self.width, self.height, con, g);
+            draw_rectangle(GAMEOVER_COLOR, 0, 0, self.width, self.height, con, g);
         }
     }
 

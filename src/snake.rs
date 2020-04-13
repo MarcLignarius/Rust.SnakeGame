@@ -1,8 +1,8 @@
 use std::collections::LinkedList;
-use piston_window::{Contact, G2d};
-use piston_window::types::Color,
+use piston_window::{Context, G2d};
+use piston_window::types::Color;
 
-use draw::draw_block;
+use crate::draw::draw_block;
 
 const SNAKE_COLOR: Color = [0.00, 0.80, 0.00, 1.0];
 #[derive(Copy, Clone, PartialEq)]
@@ -38,7 +38,7 @@ pub struct Snake {
 
 impl Snake {
     pub fn new(x: i32, y: i32) -> Snake {
-        let mut body: LinkedList<Block> = LinkedList::new()
+        let mut body: LinkedList<Block> = LinkedList::new();
         body.push_back(Block {
             x: x + 2,
             y,
@@ -59,7 +59,7 @@ impl Snake {
         }
     }
 
-    pub fn draw(&self, con: &Contact, g: &mut G2d) {
+    pub fn draw(&self, con: &Context, g: &mut G2d) {
         for block in &self.body {
             draw_block(SNAKE_COLOR, block.x, block.y, con, g);
         }
@@ -72,7 +72,7 @@ impl Snake {
 
     pub fn move_forward(&mut self, dir: Option<Direction>) {
         match dir {
-            Some(d) => self.direction = d;
+            Some(d) => self.direction = d,
             None => (),
         }
 
