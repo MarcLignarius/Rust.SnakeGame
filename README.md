@@ -34,8 +34,7 @@ This application is a classic Snake Game built using Rust. This application was 
 * `cd desktop` Navigate to the desktop.
 * `git clone "https://github.com/MarcLignarius/Rust.SnakeGame"` Clone this repository to your desktop.
 * `cd Rust.SnakeGame` Open up the cloned repository.
-* `code .` This will open the application in VS Code.
-* `cargo run` to launch the app.
+* `cargo run` to compile, build and launch the app.
 
 ## Known Bugs
 There are no known bugs as of last release.
